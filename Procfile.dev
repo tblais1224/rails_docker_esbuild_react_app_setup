@@ -1,0 +1,2 @@
+web: bundle exec bin/server
+js: bundle exec bin/esbuild

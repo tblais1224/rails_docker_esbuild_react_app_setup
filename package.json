@@ -1,6 +1,11 @@
 {
   "dependencies": {
+    "@hotwired/turbo-rails": "^7.2.5",
+    "esbuild": "^0.17.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
+  },
+  "scripts": {
+    "build": "esbuild app/javascript/*.* --bundle --sourcemap --outdir=app/assets/builds --public-path=assets"
   }
 }

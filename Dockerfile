@@ -1,4 +1,4 @@
-FROM ruby:2.6
+FROM ruby:3.2
 
 LABEL maintainer="tom blais"
 
@@ -8,7 +8,7 @@ RUN apt-get update -yqq && apt-get install -yqq --no-install-recommends \
 
 # Ensure we install an up-to-date version of Node
 # See https://github.com/yarnpkg/yarn/issues/2888
-RUN curl -sL https://deb.nodesource.com/setup_8.x | bash -
+RUN curl -sL https://deb.nodesource.com/setup_19.x | bash -
 
 # Ensure we install an up-to-date version of gem
 RUN gem update --system
@@ -32,4 +32,4 @@ RUN bundle install
 
 COPY . /usr/src/app/
 
-CMD ["bin/rails", "s", "-b", "0.0.0.0"]
+CMD ["./docker-entrypoint.sh", "bin/dev"]
